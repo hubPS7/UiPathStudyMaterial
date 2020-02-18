@@ -1,0 +1,374 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Test_Directory" this:Test_Directory.in_configFile="Data\Config.xlsx" this:Test_Directory.in_configSheets="[{&quot;Settings&quot;,&quot;Constants&quot;}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:swa="clr-namespace:System.Windows.Automation;assembly=UIAutomationTypes" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_Config" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_configFile" Type="InArgument(x:String)" />
+    <x:Property Name="in_configSheets" Type="InArgument(s:String[])" />
+    <x:Property Name="out_WorkItems" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="openPositionIDCollection" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>654,696</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Test_Directory_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart DisplayName="Main Function for Workflow" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:String" Name="vResume" />
+      <Variable x:TypeArguments="str:MatchCollection" Name="vPhoneNumberCollection" />
+      <Variable x:TypeArguments="s:String[]" Name="vFileName" />
+      <Variable x:TypeArguments="x:String" Name="vWordResume" />
+      <Variable x:TypeArguments="x:String" Name="sFiles" />
+      <Variable x:TypeArguments="str:MatchCollection" Name="vEmailAddressCollection" />
+      <Variable x:TypeArguments="x:String" Name="vCandidateName" />
+      <Variable x:TypeArguments="x:String" Name="vWorkExp" />
+      <Variable x:TypeArguments="x:String" Name="vNoticePeriod" />
+      <Variable x:TypeArguments="x:String" Name="vPhoneNumber" />
+      <Variable x:TypeArguments="x:String" Name="vEmailAddress" />
+      <Variable x:TypeArguments="s:String[]" Name="vWorkExpCollection" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">240,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">270,77.5 270,167</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID0</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID0">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">170,167</av:Point>
+          <av:Size x:Key="ShapeSize">200,66</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="Open Hiring WorkFlow" sap:VirtualizedContainerService.HintSize="480,612" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="selectFolder" />
+          <Variable x:TypeArguments="s:String[]" Name="files" />
+          <Variable x:TypeArguments="x:String" Name="vLOB" />
+          <Variable x:TypeArguments="x:String" Name="vTeam" />
+          <Variable x:TypeArguments="x:String" Name="vPosition" />
+          <Variable x:TypeArguments="x:String" Name="vLocation" />
+          <Variable x:TypeArguments="s:String[]" Name="Folders" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,388" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch.Try>
+            <Sequence sap:VirtualizedContainerService.HintSize="242,249" sap2010:WorkflowViewState.IdRef="Sequence_25">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="OutGlobalSettingValue" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="variable1" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetLocalSetting workflow" sap:VirtualizedContainerService.HintSize="436,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="GetLocalSetting.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[out_Config]</OutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,230" sap2010:WorkflowViewState.IdRef="CommentOut_13">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[variable1]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[System.IO.Path.GetFileName("C:\imp\personal\Resume\1485")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                </ui:CommentOut>
+                <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[Folders]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[Directory.GetDirectories(out_Config("ResumeBasePath").ToString())]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For each file" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Folders]">
+                <ui:ForEach.Body>
+                  <ActivityAction x:TypeArguments="x:String">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:String" Name="folder" />
+                    </ActivityAction.Argument>
+                    <Sequence sap:VirtualizedContainerService.HintSize="349,484" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="307,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:String[]">[files]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(folder.ToString(), ".", SearchOption.AllDirectories)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="307,292" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[files]">
+                        <ui:ForEach.Body>
+                          <ActivityAction x:TypeArguments="x:Object">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Object" Name="file" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="242,158" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence DisplayName="Reading Resume, DataExtraction Of Candidate, Data Extraction for Open Postion" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="vHiringManager" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ReadingResume workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ReadingResume.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="file">[file.ToString()]</InArgument>
+                                    <OutArgument x:TypeArguments="x:String" x:Key="vResume">[vResume]</OutArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="sFiles">[sFiles]</InOutArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xlsx</InArgument>
+                                    <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings","Constants"}]</InArgument>
+                                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config" />
+                                    <InArgument x:TypeArguments="x:String" x:Key="FileBasePath">[folder]</InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CandidateDataExtraction workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="CandidateDataExtraction.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="file">[file.ToString()]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vResume">[vResume]</InArgument>
+                                    <InOutArgument x:TypeArguments="str:MatchCollection" x:Key="vPhoneNumberCollection">[vPhoneNumberCollection]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="s:String[]" x:Key="vFileName">[vFileName]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="str:MatchCollection" x:Key="vEmailAddressCollection">[vEmailAddressCollection]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="vCandidateName">[vCandidateName]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="vWorkExp">[vWorkExp]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="vNoticePeriod">[vNoticePeriod]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="vPhoneNumber">[vPhoneNumber]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="vEmailAddress">[vEmailAddress]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="s:String[]" x:Key="vWorkExpCollection">[vWorkExpCollection]</InOutArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Extract_OpenPositions workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Extract_OpenPositions.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_WorkItems">[out_WorkItems]</OutArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="openPosition_Url">[out_Config("Sharepoint_OpenPosition").ToString()]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="openPositionId">[System.IO.Path.GetFileName(folder.ToString())]</InArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="vLOB">[vLOB]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="vTeam">[vTeam]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="vPosition">[vPosition]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="vLocation">[vLocation]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:String" x:Key="vHiringManager">[vHiringManager]</InOutArgument>
+                                    <OutArgument x:TypeArguments="x:Boolean" x:Key="IsValueAssigned" />
+                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="LastRowValueDataTable" />
+                                    <InArgument x:TypeArguments="x:Boolean" x:Key="IsNextButtonExists" />
+                                    <InArgument x:TypeArguments="x:Int32" x:Key="CurrentRowIndex" />
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HRSharepoint workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="HRSharepoint.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="file">[file.ToString()]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vCandidateName">[vCandidateName]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vWorkExp">[vWorkExp]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vNoticePeriod">[vNoticePeriod]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vPhoneNumber">[vPhoneNumber]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vEmailAddress">[vEmailAddress]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="Sharepoint_HiringManagementURL">[out_Config("Sharepoint_HiringManagement").ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vHiringManager">[vHiringManager]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vPosition">[vPosition]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vLOB">[vLOB]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vTeam">[vTeam]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="vLocation">[vLocation]</InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </Sequence>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEach.Body>
+                      </ui:ForEach>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEach.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEach>
+            </Sequence>
+          </TryCatch.Try>
+          <TryCatch.Catches>
+            <Catch x:TypeArguments="ui:SelectorNotFoundException" sap:VirtualizedContainerService.HintSize="400,160" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ActivityAction x:TypeArguments="ui:SelectorNotFoundException">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:SelectorNotFoundException" Name="exception" />
+                </ActivityAction.Argument>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;UI Element not found. Please contact administrator&quot;]" />
+              </ActivityAction>
+            </Catch>
+            <Catch x:TypeArguments="s:NullReferenceException" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ActivityAction x:TypeArguments="s:NullReferenceException">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="s:NullReferenceException" Name="exception" />
+                </ActivityAction.Argument>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Any of the object is null. Please contact administrator.&quot;]" />
+              </ActivityAction>
+            </Catch>
+            <Catch x:TypeArguments="s:InvalidOperationException" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ActivityAction x:TypeArguments="s:InvalidOperationException">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="s:InvalidOperationException" Name="exception" />
+                </ActivityAction.Argument>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error">
+                  <ui:LogMessage.Message>
+                    <InArgument x:TypeArguments="x:Object">
+                      <mva:VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Invalid Operation found. Please contact adminstrator&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                    </InArgument>
+                  </ui:LogMessage.Message>
+                </ui:LogMessage>
+              </ActivityAction>
+            </Catch>
+            <Catch x:TypeArguments="swa:ElementNotAvailableException" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ActivityAction x:TypeArguments="swa:ElementNotAvailableException">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="swa:ElementNotAvailableException" Name="exception" />
+                </ActivityAction.Argument>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;Element Not found!!&quot;]" />
+              </ActivityAction>
+            </Catch>
+          </TryCatch.Catches>
+          <TryCatch.Finally>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,284" sap2010:WorkflowViewState.IdRef="CommentOut_16">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="284,206" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ClearDataTable DataTable="[out_WorkItems]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
+                  </Sequence>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+          </TryCatch.Finally>
+        </TryCatch>
+      </Sequence>
+    </FlowStep>
+  </Flowchart>
+</Activity>

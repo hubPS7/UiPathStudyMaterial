@@ -1,0 +1,157 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="476,1197" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="436,1077" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="414,953" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="False" Url="http://gtsrequests.tsys.com/swr/GTSWRequest_1.aspx">
+      <ui:OpenBrowser.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="358,854" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="336,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+            <Sequence sap:VirtualizedContainerService.HintSize="336,668" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'chrome.exe Chrome'" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="SelectItem_4" Item="ACL Analytics">
+                <ui:SelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="50">
+                    <x:String>-Please select Product-</x:String>
+                    <x:String>7Zip File Compression</x:String>
+                    <x:String>Abbyy Lingvo for Windows</x:String>
+                    <x:String>ACH File Chex</x:String>
+                    <x:String>ACL Analytics</x:String>
+                    <x:String>Actifio Desktop</x:String>
+                    <x:String>ActiveState Perl (Community)</x:String>
+                    <x:String>ADManager Plus</x:String>
+                    <x:String>Adobe Acrobat DC Professional</x:String>
+                    <x:String>Adobe Acrobat DC Reader</x:String>
+                    <x:String>Adobe Acrobat DC Standard</x:String>
+                    <x:String>Adobe Air (All versions)</x:String>
+                    <x:String>Adobe Audition CC</x:String>
+                    <x:String>Adobe Captivate</x:String>
+                    <x:String>Adobe ColdFusion Builder</x:String>
+                    <x:String>Adobe ColdFusion STD 2016</x:String>
+                    <x:String>Adobe Connect AddIn (Meeting Client)</x:String>
+                    <x:String>Adobe Creative Cloud</x:String>
+                    <x:String>Adobe Digital Editions (ADE)</x:String>
+                    <x:String>Adobe Dreamweaver</x:String>
+                    <x:String>Adobe eLearning Suite 6.1</x:String>
+                    <x:String>Adobe Flash Player</x:String>
+                    <x:String>Adobe FrameMaker</x:String>
+                    <x:String>Adobe Illustrator</x:String>
+                    <x:String>Adobe InDesign</x:String>
+                    <x:String>Adobe LifeCycle Designer</x:String>
+                    <x:String>Adobe PhotoShop</x:String>
+                    <x:String>Adobe RoboHelp Office 2015 12.0</x:String>
+                    <x:String>Adobe Shockwave Player</x:String>
+                    <x:String>Adobe Sign</x:String>
+                    <x:String>Advanced Query Tool Extended</x:String>
+                    <x:String>Advizor Analyst Server AE</x:String>
+                    <x:String>Advizor Analyst/X</x:String>
+                    <x:String>AFP Plugin</x:String>
+                    <x:String>AGS Server Studio</x:String>
+                    <x:String>Akami NetSession Client Installer</x:String>
+                    <x:String>AlDanial CLOC - cloc-1.74_x86.exe 1.74</x:String>
+                    <x:String>Alteryx Designer</x:String>
+                    <x:String>Alteryx Designer Trial</x:String>
+                    <x:String>Altova XMLSpy 2019 Enterprise</x:String>
+                    <x:String>Altova XMLSpy 2019 Pro FREE TRIAL ONLY</x:String>
+                    <x:String>Always Up Core Technologies</x:String>
+                    <x:String>Amadeus Travel Platform</x:String>
+                    <x:String>Amazon AWS CLI for Windows (64 bit)</x:String>
+                    <x:String>Amazon AWS Tools for Windows Powershell</x:String>
+                    <x:String>Amazon WorkSpaces Client for Windows</x:String>
+                    <x:String>AMEX Simulator</x:String>
+                    <x:String>AMP Access Asst plugin for IE</x:String>
+                    <x:String>Anaconda Analytics - Free Version</x:String>
+                    <x:String>Anaconda Editor with Python 3.7</x:String>
+                  </scg:List>
+                </ui:SelectItem.Items>
+                <ui:SelectItem.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="03c49a2b7d895da1f0588c73f56e85cf" Selector="&lt;webctrl id='cboSWTitle' tag='SELECT' /&gt;" TimeoutMS="60000" WaitForReady="NONE" />
+                </ui:SelectItem.Target>
+              </ui:SelectItem>
+              <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="Delay_7" />
+              <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  cboPurpose'" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="SelectItem_6" Item="Development">
+                <ui:SelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="8">
+                    <x:String>-Please select Environment-</x:String>
+                    <x:String>Core LAN</x:String>
+                    <x:String>Development</x:String>
+                    <x:String>iSPAN</x:String>
+                    <x:String>PCS LAN</x:String>
+                    <x:String>Production</x:String>
+                  </scg:List>
+                </ui:SelectItem.Items>
+                <ui:SelectItem.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="93434be36c833ab0b1e801d0fc710f58" Selector="&lt;webctrl id='cboPurpose' tag='SELECT' /&gt;" WaitForReady="INTERACTIVE" />
+                </ui:SelectItem.Target>
+              </ui:SelectItem>
+              <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'TEXTAREA  frmBusJust'" EmptyField="False" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="Kindly install above mentioned application on my machine.&#xD;&#xA;&#xD;&#xA;Regards, Pankaj">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="86bb85088ebf54311b687d68dac17402" Selector="&lt;webctrl id='frmBusJust' tag='TEXTAREA' /&gt;" WaitForReady="INTERACTIVE" />
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </ui:OpenBrowser.Body>
+    </ui:OpenBrowser>
+  </Sequence>
+</Activity>
